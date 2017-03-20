@@ -1,0 +1,51 @@
+V3 27
+FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/controlUnit.vhd" 2017/03/20.12:19:48 P.20131013
+EN work/controlUnit 1490026880 \
+      FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/controlUnit.vhd" \
+      PB ieee/std_logic_1164 1381692176
+AR work/controlUnit/Behavioral 1490026881 \
+      FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/controlUnit.vhd" \
+      EN work/controlUnit 1490026880
+FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/IR.vhd" 2017/03/20.10:56:41 P.20131013
+EN work/IR 1490026882 \
+      FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/IR.vhd" \
+      PB ieee/std_logic_1164 1381692176
+AR work/IR/Behavioral 1490026883 \
+      FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/IR.vhd" \
+      EN work/IR 1490026882
+FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/MAR.vhd" 2017/03/20.10:54:15 P.20131013
+EN work/MAR 1490026886 \
+      FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/MAR.vhd" \
+      PB ieee/std_logic_1164 1381692176
+AR work/MAR/Behavioral 1490026887 \
+      FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/MAR.vhd" \
+      EN work/MAR 1490026886
+FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/MBR.vhd" 2017/03/20.10:55:30 P.20131013
+EN work/MBR 1490026888 \
+      FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/MBR.vhd" \
+      PB ieee/std_logic_1164 1381692176
+AR work/MBR/Behavioral 1490026889 \
+      FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/MBR.vhd" \
+      EN work/MBR 1490026888
+FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/microprocessor.vhd" 2017/03/20.12:21:15 P.20131013
+EN work/microprocessor 1490026892 \
+      FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/microprocessor.vhd" \
+      PB ieee/std_logic_1164 1381692176
+AR work/microprocessor/Behavioral 1490026893 \
+      FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/microprocessor.vhd" \
+      EN work/microprocessor 1490026892 CP controlUnit CP IR CP PC CP MAR CP MBR \
+      CP RAM
+FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/PC.vhd" 2017/03/20.11:05:28 P.20131013
+EN work/PC 1490026884 \
+      FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/PC.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
+AR work/PC/Behavioral 1490026885 \
+      FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/PC.vhd" \
+      EN work/PC 1490026884
+FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/RAM.vhd" 2017/03/20.12:20:08 P.20131013
+EN work/RAM 1490026890 \
+      FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/RAM.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/RAM/Behavioral 1490026891 \
+      FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/RAM.vhd" \
+      EN work/RAM 1490026890

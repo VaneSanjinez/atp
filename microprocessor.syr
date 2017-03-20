@@ -1,0 +1,445 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.17 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.17 secs
+ 
+--> Reading design: microprocessor.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "microprocessor.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "microprocessor"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : microprocessor
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/controlUnit.vhd" in Library work.
+Architecture behavioral of Entity controlunit is up to date.
+Compiling vhdl file "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/IR.vhd" in Library work.
+Architecture behavioral of Entity ir is up to date.
+Compiling vhdl file "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/PC.vhd" in Library work.
+Architecture behavioral of Entity pc is up to date.
+Compiling vhdl file "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/MAR.vhd" in Library work.
+Architecture behavioral of Entity mar is up to date.
+Compiling vhdl file "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/MBR.vhd" in Library work.
+Architecture behavioral of Entity mbr is up to date.
+Compiling vhdl file "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/RAM.vhd" in Library work.
+Architecture behavioral of Entity ram is up to date.
+Compiling vhdl file "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/microprocessor.vhd" in Library work.
+Entity <microprocessor> compiled.
+Entity <microprocessor> (Architecture <Behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <microprocessor> in library <work> (architecture <Behavioral>).
+
+Analyzing hierarchy for entity <controlUnit> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <IR> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <PC> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <MAR> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <MBR> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <RAM> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <microprocessor> in library <work> (Architecture <Behavioral>).
+Entity <microprocessor> analyzed. Unit <microprocessor> generated.
+
+Analyzing Entity <controlUnit> in library <work> (Architecture <behavioral>).
+Entity <controlUnit> analyzed. Unit <controlUnit> generated.
+
+Analyzing Entity <IR> in library <work> (Architecture <behavioral>).
+WARNING:Xst:819 - "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/IR.vhd" line 45: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <regs>
+Entity <IR> analyzed. Unit <IR> generated.
+
+Analyzing Entity <PC> in library <work> (Architecture <behavioral>).
+WARNING:Xst:819 - "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/PC.vhd" line 45: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <regs>
+Entity <PC> analyzed. Unit <PC> generated.
+
+Analyzing Entity <MAR> in library <work> (Architecture <behavioral>).
+WARNING:Xst:819 - "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/MAR.vhd" line 45: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <regs>
+Entity <MAR> analyzed. Unit <MAR> generated.
+
+Analyzing Entity <MBR> in library <work> (Architecture <behavioral>).
+WARNING:Xst:819 - "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/MBR.vhd" line 45: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <regs>
+Entity <MBR> analyzed. Unit <MBR> generated.
+
+Analyzing Entity <RAM> in library <work> (Architecture <behavioral>).
+WARNING:Xst:819 - "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/RAM.vhd" line 50: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <memory>
+Entity <RAM> analyzed. Unit <RAM> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <controlUnit>.
+    Related source file is "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/controlUnit.vhd".
+WARNING:Xst:1305 - Output <enable_MBR> is never assigned. Tied to value 00.
+WARNING:Xst:1305 - Output <enable_RAM> is never assigned. Tied to value 00.
+WARNING:Xst:1305 - Output <enable_IR> is never assigned. Tied to value 00.
+WARNING:Xst:737 - Found 2-bit latch for signal <enable_PC>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 5-bit latch for signal <nextState>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 2-bit latch for signal <enable_MAR>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Using one-hot encoding for signal <estadoPresente>.
+    Using one-hot encoding for signal <presentState>.
+WARNING:Xst:737 - Found 8-bit latch for signal <estadoSiguiente>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 8-bit register for signal <estadoPresente>.
+    Found 5-bit register for signal <presentState>.
+    Summary:
+	inferred  13 D-type flip-flop(s).
+Unit <controlUnit> synthesized.
+
+
+Synthesizing Unit <IR>.
+    Related source file is "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/IR.vhd".
+WARNING:Xst:647 - Input <enableRead> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 24-bit register for signal <regs>.
+    Summary:
+	inferred  24 D-type flip-flop(s).
+Unit <IR> synthesized.
+
+
+Synthesizing Unit <PC>.
+    Related source file is "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/PC.vhd".
+WARNING:Xst:647 - Input <enableRead> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 24-bit register for signal <regs>.
+    Summary:
+	inferred  24 D-type flip-flop(s).
+Unit <PC> synthesized.
+
+
+Synthesizing Unit <MAR>.
+    Related source file is "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/MAR.vhd".
+WARNING:Xst:647 - Input <enableRead> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 24-bit register for signal <regs>.
+    Summary:
+	inferred  24 D-type flip-flop(s).
+Unit <MAR> synthesized.
+
+
+Synthesizing Unit <MBR>.
+    Related source file is "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/MBR.vhd".
+WARNING:Xst:647 - Input <enableRead> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 24-bit register for signal <regs>.
+    Summary:
+	inferred  24 D-type flip-flop(s).
+Unit <MBR> synthesized.
+
+
+Synthesizing Unit <RAM>.
+    Related source file is "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/RAM.vhd".
+WARNING:Xst:647 - Input <readRAM> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 256x24-bit single-port RAM <Mram_memory> for signal <memory>.
+    Summary:
+	inferred   1 RAM(s).
+Unit <RAM> synthesized.
+
+
+Synthesizing Unit <microprocessor>.
+    Related source file is "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/microprocessor.vhd".
+WARNING:Xst:646 - Signal <outRAM> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <outPC> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <outMBR> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <outMAR> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <outIR> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <dataBus> is used but never assigned. This sourceless signal will be automatically connected to value 000000000000000000000000.
+Unit <microprocessor> synthesized.
+
+WARNING:Xst:524 - All outputs of the instance <p2> of the block <IR> are unconnected in block <microprocessor>.
+   This instance will be removed from the design along with all underlying logic
+WARNING:Xst:524 - All outputs of the instance <p3> of the block <PC> are unconnected in block <microprocessor>.
+   This instance will be removed from the design along with all underlying logic
+WARNING:Xst:524 - All outputs of the instance <p4> of the block <MAR> are unconnected in block <microprocessor>.
+   This instance will be removed from the design along with all underlying logic
+WARNING:Xst:524 - All outputs of the instance <p5> of the block <MBR> are unconnected in block <microprocessor>.
+   This instance will be removed from the design along with all underlying logic
+WARNING:Xst:524 - All outputs of the instance <p6> of the block <RAM> are unconnected in block <microprocessor>.
+   This instance will be removed from the design along with all underlying logic
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 2
+ 5-bit register                                        : 1
+ 8-bit register                                        : 1
+# Latches                                              : 4
+ 2-bit latch                                           : 2
+ 5-bit latch                                           : 1
+ 8-bit latch                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:1290 - Hierarchical block <p1> is unconnected in block <microprocessor>.
+   It will be removed from the design.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 13
+ Flip-Flops                                            : 13
+# Latches                                              : 4
+ 2-bit latch                                           : 2
+ 5-bit latch                                           : 1
+ 8-bit latch                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <enable_MAR_1> (without init value) has a constant value of 0 in block <controlUnit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <enable_PC_0> (without init value) has a constant value of 0 in block <controlUnit>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <microprocessor> ...
+
+Optimizing unit <IR> ...
+
+Optimizing unit <PC> ...
+
+Optimizing unit <MAR> ...
+
+Optimizing unit <MBR> ...
+
+Optimizing unit <controlUnit> ...
+WARNING:Xst:2677 - Node <p1/estadoSiguiente_7> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/estadoSiguiente_6> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/estadoSiguiente_5> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/estadoSiguiente_4> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/estadoSiguiente_3> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/estadoSiguiente_2> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/estadoSiguiente_1> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/estadoSiguiente_0> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/enable_PC_1> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/enable_MAR_0> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/nextState_4> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/nextState_3> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/nextState_2> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/nextState_1> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/nextState_0> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/estadoPresente_7> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/estadoPresente_6> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/estadoPresente_5> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/estadoPresente_4> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/estadoPresente_3> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/estadoPresente_2> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/estadoPresente_1> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/estadoPresente_0> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/presentState_4> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/presentState_3> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/presentState_2> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/presentState_1> of sequential type is unconnected in block <microprocessor>.
+WARNING:Xst:2677 - Node <p1/presentState_0> of sequential type is unconnected in block <microprocessor>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block microprocessor, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : microprocessor.ngr
+Top Level Output File Name         : microprocessor
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 1
+
+Cell Usage :
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                        0  out of   4656     0%  
+ Number of IOs:                           1
+ Number of bonded IOBs:                   0  out of    232     0%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+No clock signals found in this design
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 16.00 secs
+Total CPU time to Xst completion: 15.92 secs
+ 
+--> 
+
+Total memory usage is 260928 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   59 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

@@ -1,0 +1,14 @@
+EN mar NULL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/MAR.vhd" sub00/vhpl00 1490026886
+EN mbr NULL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/MBR.vhd" sub00/vhpl10 1490026888
+AR microprocessor behavioral "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/microprocessor.vhd" sub00/vhpl13 1490026893
+EN ir NULL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/IR.vhd" sub00/vhpl08 1490026882
+EN pc NULL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/PC.vhd" sub00/vhpl02 1490026884
+AR ir behavioral "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/IR.vhd" sub00/vhpl09 1490026883
+AR ram behavioral "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/RAM.vhd" sub00/vhpl05 1490026891
+AR mar behavioral "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/MAR.vhd" sub00/vhpl01 1490026887
+EN controlunit NULL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/controlUnit.vhd" sub00/vhpl06 1490026880
+EN microprocessor NULL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/microprocessor.vhd" sub00/vhpl12 1490026892
+EN ram NULL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/RAM.vhd" sub00/vhpl04 1490026890
+AR pc behavioral "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/PC.vhd" sub00/vhpl03 1490026885
+AR controlunit behavioral "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/controlUnit.vhd" sub00/vhpl07 1490026881
+AR mbr behavioral "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/MBR.vhd" sub00/vhpl11 1490026889
