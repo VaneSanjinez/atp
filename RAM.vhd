@@ -44,12 +44,16 @@ end RAM;
 architecture Behavioral of RAM is
 
 type matrix is array (255 downto 0) of STD_LOGIC_VECTOR(23 downto 0);
-signal memory : matrix := (others => (others => '0'));
+
 
 begin
 process (clk, readRAM, writeRAM, datain, addr)
+
+variable memory : matrix := (others => (others => '0'));
+
 begin
 if clk = '1' and clk'Event then
+memory(50) := "001101111010101010101010";
 --memory(768) <= X"1940";
 --	if reset = '1' then
 --			memory <= (others => (others => '0'));
@@ -59,7 +63,7 @@ if clk = '1' and clk'Event then
 		dataout <= memory(conv_integer(addr));
 	end if;
 	if writeRAM = '1' then
-		memory(conv_integer(addr)) <= datain;
+		memory(conv_integer(addr)) := datain;
 	end if;
 
 end if;

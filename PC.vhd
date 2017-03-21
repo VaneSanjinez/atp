@@ -39,16 +39,16 @@ end PC;
 
 architecture Behavioral of PC is
 
-signal regs : STD_LOGIC_VECTOR (23 downto 0);
 begin
 
 process (clk, enableWrite, enableRead, datain)
+variable regs : STD_LOGIC_VECTOR (23 downto 0) := "000000000000000000000001";
 begin
 if clk = '1' and clk'EVENT then
 	if enableWrite = '1' then  
-		regs <= datain;
+		regs := datain;
 	elsif enableRead = '1' then
-		dataout <= std_logic_vector(unsigned(regs) +1);
+		regs := std_logic_vector(unsigned(regs) + 1);
 	end if;
 end if;
 

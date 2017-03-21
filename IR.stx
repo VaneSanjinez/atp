@@ -4,7 +4,7 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.16 secs
+Total CPU time to Xst completion: 0.17 secs
  
 --> Parameter xsthdpdir set to C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/xst
 
@@ -17,11 +17,11 @@ Total CPU time to Xst completion: 0.17 secs
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling vhdl file "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/controlUnit.vhd" in Library work.
-Architecture behavioral of Entity controlunit is up to date.
+Compiling vhdl file "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/IR.vhd" in Library work.
+Architecture behavioral of Entity ir is up to date.
 
 
-Total REAL time to Xst completion: 1.00 secs
+Total REAL time to Xst completion: 0.00 secs
 Total CPU time to Xst completion: 0.21 secs
  
 --> 

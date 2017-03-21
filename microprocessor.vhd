@@ -102,6 +102,7 @@ signal enRAM : STD_LOGIC_VECTOR(1 downto 0);
 
 --databus
 signal dataBus : STD_LOGIC_VECTOR(23 downto 0);
+signal dataAddr : STD_LOGIC_VECTOR(7 downto 0);
 signal outMAR : STD_LOGIC_VECTOR(23 downto 0);
 signal outMBR : STD_LOGIC_VECTOR(23 downto 0);
 signal outPC : STD_LOGIC_VECTOR(23 downto 0);
@@ -126,29 +127,56 @@ p3 : PC port map
 	(clk => clk,
 	 datain => dataBus,
 	 dataout => outPC,
-	 enableWrite => enPC(0),
-	 enableRead => enPC(1));
+	 enableWrite => enPC(1),
+	 enableRead => enPC(0));
 p4 : MAR port map
 	(clk => clk,
 	 datain => dataBus,
 	 dataout => outMAR,
-	 enableWrite => enMAR(0),
-	 enableRead => enMAR(1));
+	 enableWrite => enMAR(1),
+	 enableRead => enMAR(0));
 p5 : MBR port map
 	(clk => clk,
 	 datain => dataBus,
 	 dataout => outMBR,
-	 enableWrite => enMBR(0),
-	 enableRead => enMBR(1));
+	 enableWrite => enMBR(1),
+	 enableRead => enMBR(0));
 p6 : RAM port map
 	(clk  => clk,
    --reset => ;
 	datain  => dataBus,
 	dataout  =>  outRAM,
-   addr  => "00000000",
-   readRAM  => enRAM(0),
-	writeRAM => enRAM(1)
-	);
+   addr  => dataAddr,
+   readRAM  => enRAM(1),
+	writeRAM => enRAM(0));
+	
+--demux for out of each component DATA
+process (outMBR, outMAR, outRAM, outPC, outIR, enMAR, enRAM, enMBR, enIR, enPC)
+variable auxiliarBus: STD_LOGIC_VECTOR (23 downto 0);
+begin
+	if enPC(1) = '1' then
+		auxiliarBus := outPC;
+--	elsif enMAR(1) = '1' then
+--		auxiliarBus := outMAR;
+	elsif enMBR(1) = '1' then
+		auxiliarBus := outMBR;
+	elsif enIR(1) = '1' then
+		auxiliarBus := outIR;
+	elsif enRAM(1) = '1' then
+		auxiliarBus := outRAM;
+	end if;
+	
+	dataBus <= auxiliarBus;
+end process;
 
+--demux for ADDRESS
+process (outMBR, outMAR, outRAM, outPC, outIR, enMAR, enRAM, enMBR, enIR, enPC)
+variable auxiliarAddr: STD_LOGIC_VECTOR(23 downto 0);
+begin
+	if enMAR(1) = '1' then
+		auxiliarAddr := outMAR;
+	end if;
+	dataAddr <= auxiliarAddr;
+end process;
 end Behavioral;
 
