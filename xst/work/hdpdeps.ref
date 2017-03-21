@@ -1,11 +1,12 @@
 V3 27
-FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/controlUnit.vhd" 2017/03/20.12:19:48 P.20131013
-EN work/controlUnit 1490041898 \
+FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/controlUnit.vhd" 2017/03/21.16:12:47 P.20131013
+EN work/controlUnit 1490127172 \
       FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/controlUnit.vhd" \
-      PB ieee/std_logic_1164 1381692176
-AR work/controlUnit/Behavioral 1490041899 \
+      PB ieee/std_logic_1164 1381692176 PB ieee/STD_LOGIC_UNSIGNED 1381692179 \
+      PB ieee/NUMERIC_STD 1381692181
+AR work/controlUnit/Behavioral 1490127173 \
       FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/controlUnit.vhd" \
-      EN work/controlUnit 1490041898
+      EN work/controlUnit 1490127172
 FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/IR.vhd" 2017/03/20.16:28:13 P.20131013
 EN work/IR 1490041909 \
       FL "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/IR.vhd" \

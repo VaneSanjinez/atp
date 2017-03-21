@@ -45,13 +45,14 @@ process (clk, enableWrite, enableRead, datain)
 variable regs : STD_LOGIC_VECTOR (23 downto 0);
 begin
 if clk = '1' and clk'EVENT then
-	if enableWrite = '1' then  
-		regs := datain;
-	elsif enableRead = '1' then
-		dataout <= regs;
+	if enableWrite = '1' then   
+			--regs :=	datain;
+			dataout <= regs;
+		elsif enableRead = '1' then 
+			regs :=	datain;
+			--dataout <= regs;
 	end if;
 end if;
-
 dataout <= regs;
 end process;
 

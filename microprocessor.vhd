@@ -171,10 +171,10 @@ end process;
 
 --demux for ADDRESS
 process (outMBR, outMAR, outRAM, outPC, outIR, enMAR, enRAM, enMBR, enIR, enPC)
-variable auxiliarAddr: STD_LOGIC_VECTOR(23 downto 0);
+variable auxiliarAddr: STD_LOGIC_VECTOR(7 downto 0);
 begin
 	if enMAR(1) = '1' then
-		auxiliarAddr := outMAR;
+		auxiliarAddr := outMAR(7 downto 0);
 	end if;
 	dataAddr <= auxiliarAddr;
 end process;

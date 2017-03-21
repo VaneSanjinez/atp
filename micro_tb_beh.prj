@@ -1,0 +1,8 @@
+vhdl work "RAM.vhd"
+vhdl work "PC.vhd"
+vhdl work "MBR.vhd"
+vhdl work "MAR.vhd"
+vhdl work "IR.vhd"
+vhdl work "controlUnit.vhd"
+vhdl work "microprocessor.vhd"
+vhdl work "micro_tb.vhd"

@@ -5,11 +5,5 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="error" file="HDLCompiler" num="410" delta="unknown" >"C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/microprocessor.vhd" Line 179: Expression has <arg fmt="%d" index="1">24</arg> elements ; expected <arg fmt="%d" index="2">8</arg>
-</msg>
-
-<msg type="error" file="Simulator" num="777" delta="unknown" >Static elaboration of top level VHDL design unit <arg fmt="%s" index="1">micro_tb</arg> in library <arg fmt="%s" index="2">work</arg> failed
-</msg>
-
 </messages>
 

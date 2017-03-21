@@ -4,7 +4,7 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.16 secs
+Total CPU time to Xst completion: 0.17 secs
  
 --> Parameter xsthdpdir set to C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/xst
 
@@ -18,17 +18,19 @@ Total CPU time to Xst completion: 0.17 secs
 *                          HDL Compilation                              *
 =========================================================================
 Compiling vhdl file "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/controlUnit.vhd" in Library work.
-Architecture behavioral of Entity controlunit is up to date.
+Entity <controlunit> compiled.
+WARNING:HDLParsers:3534 - "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/controlUnit.vhd" Line 77. In the function fetch, not all control paths contain a return statement.
+Entity <controlunit> (Architecture <behavioral>) compiled.
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.21 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.28 secs
  
 --> 
 
 Total memory usage is 213120 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    1 (   0 filtered)
+Number of warnings :    2 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

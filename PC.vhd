@@ -46,9 +46,9 @@ variable regs : STD_LOGIC_VECTOR (23 downto 0) := "000000000000000000000001";
 begin
 if clk = '1' and clk'EVENT then
 	if enableWrite = '1' then  
-		regs := datain;
-	elsif enableRead = '1' then
 		regs := std_logic_vector(unsigned(regs) + 1);
+	elsif enableRead = '1' then
+		dataout <= regs;
 	end if;
 end if;
 
