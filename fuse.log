@@ -3,7 +3,9 @@ ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
+Parsing VHDL file "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/RB.vhd" into library work
 Parsing VHDL file "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/RAM.vhd" into library work
+Parsing VHDL file "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/RA.vhd" into library work
 Parsing VHDL file "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/PC.vhd" into library work
 Parsing VHDL file "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/MBR.vhd" into library work
 Parsing VHDL file "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/MAR.vhd" into library work
@@ -24,11 +26,13 @@ Compiling architecture behavioral of entity PC [pc_default]
 Compiling architecture behavioral of entity MAR [mar_default]
 Compiling architecture behavioral of entity MBR [mbr_default]
 Compiling architecture behavioral of entity RAM [ram_default]
+Compiling architecture behavioral of entity RA [ra_default]
+Compiling architecture behavioral of entity RB [rb_default]
 Compiling architecture behavioral of entity microprocessor [microprocessor_default]
 Compiling architecture behavior of entity micro_tb
 Time Resolution for simulation is 1ps.
-Waiting for 5 sub-compilation(s) to finish...
-Compiled 20 VHDL Units
+Waiting for 7 sub-compilation(s) to finish...
+Compiled 24 VHDL Units
 Built simulation executable C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/micro_tb_isim_beh.exe
-Fuse Memory Usage: 36736 KB
-Fuse CPU Usage: 1029 ms
+Fuse Memory Usage: 36912 KB
+Fuse CPU Usage: 1044 ms
