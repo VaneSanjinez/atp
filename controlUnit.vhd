@@ -89,7 +89,7 @@ begin
 end fetch;
 
 --Instructions 
---MOVE reg, reg
+--MOVE reg, reg (RA, RB) from RB to RA
 function moveRegReg (state: integer) return STD_LOGIC_VECTOR is
 	variable enPC : STD_LOGIC_VECTOR(1 downto 0) := "00";
 	variable enMAR : STD_LOGIC_VECTOR(1 downto 0) := "00";
@@ -105,13 +105,36 @@ begin
 		when 1 =>
 			enRB := "10"; --sacar
 		when 2 => 
-			enRA := "01";--write
+			enRA := "01";--agarra
 		when others =>
 	end case;
 	outDecode := selfControl & enRA & enRB & enPC & enMAR & enRAM & enMBR & enIR;
 	return outDecode;
 end moveRegReg;
---MOVE addr, reg
+--
+--MOVE reg, reg (RB, RA)
+function moveRegRegBA (state: integer) return STD_LOGIC_VECTOR is
+	variable enPC : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enMAR : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enMBR : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enRAM : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enIR : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enRA : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enRB : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable selfControl : STD_LOGIC_VECTOR(3 downto 0) := "0000";
+	variable outDecode : STD_LOGIC_VECTOR (17 downto 0);
+begin
+	case state is
+		when 1 =>
+			enRA := "10"; --sacar
+		when 2 => 
+			enRB := "01";--agarra
+		when others =>
+	end case;
+	outDecode := selfControl & enRA & enRB & enPC & enMAR & enRAM & enMBR & enIR;
+	return outDecode;
+end moveRegRegBA;
+--MOVE addr, reg from reg to addr
 function moveAddrReg (state: integer) return STD_LOGIC_VECTOR is
 	variable enPC : STD_LOGIC_VECTOR(1 downto 0) := "00";
 	variable enMAR : STD_LOGIC_VECTOR(1 downto 0) := "00";
@@ -130,11 +153,17 @@ begin
 			enRA := "10";
 		when 3 => 
 			enRAM := "01";
+		when 4 =>
+			enRAM := "10";
 		when others =>
 	end case;
 	outDecode := selfControl & enRA & enRB & enPC & enMAR & enRAM & enMBR & enIR;
 	return outDecode;
 end moveAddrReg;
+--
+
+
+
 --INCTRUCTION CYCLE
 type estado is (instAddr, instFetch, instDecoding, operandAddCalc, operandFetch, dataOp, opDataCalc, opStore);
 signal estadoPresente, estadoSiguiente : estado;
@@ -158,7 +187,7 @@ case estadoPresente is
 		counter := 0;
 	when instFetch =>
 		counter := counter + 1;
-		if counter > 0 and counter < 11 then
+		if counter > 0 and counter < 10 then
 			fetchOut := fetch(counter);
 			selfControl <= decodeOut(17 downto 14);
 			enable_RA <= fetchOut(13 downto 12);
@@ -191,8 +220,21 @@ case estadoPresente is
 				if counterDecode = 2 then
 					estadoSiguiente <=  operandAddCalc;
 				end if;
-			when "00001" =>
+			when "00001" => --reg addr
 				decodeOut := moveAddrReg(counterDecode);
+				selfControl <= decodeOut(17 downto 14);
+				enable_RA <= decodeOut(13 downto 12);
+				enable_RB <= decodeOut(11 downto 10);
+				enable_PC  <= decodeOut(9 downto 8);
+				enable_MAR <= decodeOut(7 downto 6);
+				enable_RAM <= decodeOut(5 downto 4);
+				enable_MBR <= decodeOut(3 downto 2);
+				enable_IR  <= decodeOut(1 downto 0);
+				if counterDecode = 3 then
+					estadoSiguiente <=  operandAddCalc;
+				end if;
+			when "00010" => --reg reg (from B to A)
+				decodeOut := moveRegRegBA(counterDecode);
 				selfControl <= decodeOut(17 downto 14);
 				enable_RA <= decodeOut(13 downto 12);
 				enable_RB <= decodeOut(11 downto 10);

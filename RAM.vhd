@@ -53,7 +53,8 @@ variable memory : matrix := (others => (others => '0'));
 
 begin
 if clk = '1' and clk'Event then
-memory(2) := "000001111010101010101010";
+--memory(2) := "000001111010101010101010"; -- move RA, RB from RB to RA
+memory(2) := "000011111010101010101010"; -- move reg, Addr from addr to reg
 --memory(768) <= X"1940";
 --	if reset = '1' then
 --			memory <= (others => (others => '0'));
