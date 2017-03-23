@@ -97,7 +97,8 @@ Port (clk : in STD_LOGIC;
 		--
 		selfControl : out STD_LOGIC_VECTOR(3 downto 0);
 		firstOperand :  out STD_LOGIC_VECTOR(7 downto 0);
-		secondOperand :  out STD_LOGIC_VECTOR(7 downto 0)
+		secondOperand :  out STD_LOGIC_VECTOR(7 downto 0);
+		enable_ALU : out STD_LOGIC
 		);
 end component;
 --
@@ -120,6 +121,16 @@ Port (     clk : in  STD_LOGIC;
 
 end component;
 --
+--ALU
+component ALU
+Port(	clk : in STD_LOGIC;
+		enableALU: in STD_LOGIC;
+		operandOne: in STD_LOGIC_VECTOR(7 downto 0);
+		operandTwo: in STD_LOGIC_VECTOR(7 downto 0);
+		selfControl: in STD_LOGIC_VECTOR(3 downto 0);
+		dataout: out STD_LOGIC_VECTOR(7 downto 0));
+end component;
+--
 
 --outputs de UC
 signal enMAR : STD_LOGIC_VECTOR(1 downto 0);
@@ -132,6 +143,7 @@ signal enRB : STD_LOGIC_VECTOR(1 downto 0);
 signal selfControl : STD_LOGIC_VECTOR(3 downto 0);
 signal operand1 : STD_LOGIC_VECTOR(7 downto 0);
 signal operand2 : STD_LOGIC_VECTOR(7 downto 0);
+signal enALU : STD_LOGIC;
 
 
 
@@ -145,6 +157,7 @@ signal outIR : STD_LOGIC_VECTOR(23 downto 0);
 signal outRAM : STD_LOGIC_VECTOR(23 downto 0);
 signal outRA : STD_LOGIC_VECTOR(23 downto 0);
 signal outRB : STD_LOGIC_VECTOR(23 downto 0);
+signal outALU : STD_LOGIC_VECTOR(7 downto 0);
 
 begin
 
@@ -160,7 +173,8 @@ p1 : controlUnit port map
 	 instruction => dataBus, 
 	 selfControl => selfControl,
 	 firstOperand => operand1,
-	 secondOperand => operand2);
+	 secondOperand => operand2,
+	 enable_ALU => enALU);
 p2 : IR port map
 	(clk => clk,
 	 datain => dataBus,
@@ -205,6 +219,13 @@ p8 : RB port map
 	 dataout => outRB,
 	 enableWrite => enRB(1),
 	 enableRead => enRB(0));
+p9 : ALU port map
+	(clk => clk,
+	 enableALU => enALU,
+	 operandOne => operand1,
+	 operandTwo => operand2,
+	 selfControl => selfControl,
+	 dataout => outALU);
 	
 --demux for out of each component DATA
 process (outMBR, outMAR, outRAM, outPC, outIR, outRA, outRB, enMAR, enRAM, enMBR, enIR, enPC, enRA, enRB, selfControl)

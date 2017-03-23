@@ -10,7 +10,7 @@ Total CPU time to Xst completion: 0.17 secs
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.17 secs
+Total CPU time to Xst completion: 0.18 secs
  
 --> WARNING:Xst:3164 - Option "-debug" found multiple times in the command line. Only the first occurence is considered.
 
@@ -18,16 +18,15 @@ Total CPU time to Xst completion: 0.17 secs
 *                          HDL Compilation                              *
 =========================================================================
 Compiling vhdl file "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/MAR.vhd" in Library work.
-Entity <mar> compiled.
-Entity <mar> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity mar is up to date.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.22 secs
+Total CPU time to Xst completion: 0.29 secs
  
 --> 
 
-Total memory usage is 213632 kilobytes
+Total memory usage is 213568 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    1 (   0 filtered)

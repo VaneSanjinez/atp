@@ -1,0 +1,5 @@
+set -tmpdir "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/xst/projnav.tmp"
+set -xsthdpdir "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/xst"
+elaborate
+-ifn RB.prj
+-ifmt mixed

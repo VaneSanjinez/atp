@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.17 secs
+Total CPU time to Xst completion: 0.18 secs
  
 --> Parameter xsthdpdir set to C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.17 secs
+Total CPU time to Xst completion: 0.18 secs
  
 --> WARNING:Xst:3164 - Option "-debug" found multiple times in the command line. Only the first occurence is considered.
 
@@ -33,16 +33,20 @@ Compiling vhdl file "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesa
 Architecture behavioral of Entity ra is up to date.
 Compiling vhdl file "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/RB.vhd" in Library work.
 Architecture behavioral of Entity rb is up to date.
+Compiling vhdl file "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/ALU.vhd" in Library work.
+Entity <alu> compiled.
+Entity <alu> (Architecture <behavioral>) compiled.
 Compiling vhdl file "C:/Vane/Universidad/Noveno Semestre/Arquitectura de procesadores/microFinalProject/microprocessor.vhd" in Library work.
-Architecture behavioral of Entity microprocessor is up to date.
+Entity <microprocessor> compiled.
+Entity <microprocessor> (Architecture <behavioral>) compiled.
 
 
 Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.28 secs
+Total CPU time to Xst completion: 0.35 secs
  
 --> 
 
-Total memory usage is 215168 kilobytes
+Total memory usage is 214912 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    1 (   0 filtered)

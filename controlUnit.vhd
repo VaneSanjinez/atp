@@ -45,7 +45,8 @@ Port (clk : in STD_LOGIC;
 		--control for memory involved
 		selfControl : out STD_LOGIC_VECTOR(3 downto 0);
 		firstOperand :  out STD_LOGIC_VECTOR(7 downto 0);
-		secondOperand :  out STD_LOGIC_VECTOR(7 downto 0)
+		secondOperand :  out STD_LOGIC_VECTOR(7 downto 0);
+		enable_ALU : out STD_LOGIC
 		);
 end controlUnit;
 
@@ -60,8 +61,9 @@ function fetch (state: integer) return STD_LOGIC_VECTOR is
 	variable enIR : STD_LOGIC_VECTOR(1 downto 0) := "00";
 	variable enRA : STD_LOGIC_VECTOR(1 downto 0) := "00";
 	variable enRB : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enALU : STD_LOGIC := '0';
 	variable selfControl : STD_LOGIC_VECTOR(3 downto 0) := "0000";
-	variable outFetch : STD_LOGIC_VECTOR (17 downto 0);
+	variable outFetch : STD_LOGIC_VECTOR (18 downto 0);
 begin
 	case state is
 		when 1 =>
@@ -84,7 +86,7 @@ begin
 			enIR := "10";
 		when others =>
 	end case;
-	outFetch := selfControl & enRA & enRB & enPC & enMAR & enRAM & enMBR & enIR;
+	outFetch := enALU &  selfControl & enRA & enRB & enPC & enMAR & enRAM & enMBR & enIR;
 	return outFetch;
 end fetch;
 
@@ -98,8 +100,9 @@ function moveRegReg (state: integer) return STD_LOGIC_VECTOR is
 	variable enIR : STD_LOGIC_VECTOR(1 downto 0) := "00";
 	variable enRA : STD_LOGIC_VECTOR(1 downto 0) := "00";
 	variable enRB : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enALU : STD_LOGIC := '0';
 	variable selfControl : STD_LOGIC_VECTOR(3 downto 0) := "0000";
-	variable outDecode : STD_LOGIC_VECTOR (17 downto 0);
+	variable outDecode : STD_LOGIC_VECTOR (18 downto 0);
 begin
 	case state is
 		when 1 =>
@@ -108,7 +111,7 @@ begin
 			enRA := "01";--agarra
 		when others =>
 	end case;
-	outDecode := selfControl & enRA & enRB & enPC & enMAR & enRAM & enMBR & enIR;
+	outDecode := enALU & selfControl & enRA & enRB & enPC & enMAR & enRAM & enMBR & enIR;
 	return outDecode;
 end moveRegReg;
 --
@@ -121,8 +124,9 @@ function moveRegRegBA (state: integer) return STD_LOGIC_VECTOR is
 	variable enIR : STD_LOGIC_VECTOR(1 downto 0) := "00";
 	variable enRA : STD_LOGIC_VECTOR(1 downto 0) := "00";
 	variable enRB : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enALU : STD_LOGIC := '0';
 	variable selfControl : STD_LOGIC_VECTOR(3 downto 0) := "0000";
-	variable outDecode : STD_LOGIC_VECTOR (17 downto 0);
+	variable outDecode : STD_LOGIC_VECTOR (18 downto 0);
 begin
 	case state is
 		when 1 =>
@@ -131,7 +135,7 @@ begin
 			enRB := "01";--agarra
 		when others =>
 	end case;
-	outDecode := selfControl & enRA & enRB & enPC & enMAR & enRAM & enMBR & enIR;
+	outDecode := enALU & selfControl & enRA & enRB & enPC & enMAR & enRAM & enMBR & enIR;
 	return outDecode;
 end moveRegRegBA;
 --MOVE addr, reg from reg to addr
@@ -143,8 +147,9 @@ function moveAddrReg (state: integer) return STD_LOGIC_VECTOR is
 	variable enIR : STD_LOGIC_VECTOR(1 downto 0) := "00";
 	variable enRA : STD_LOGIC_VECTOR(1 downto 0) := "00";
 	variable enRB : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enALU : STD_LOGIC := '0';
 	variable selfControl : STD_LOGIC_VECTOR(3 downto 0) := "0000";
-	variable outDecode : STD_LOGIC_VECTOR (17 downto 0);
+	variable outDecode : STD_LOGIC_VECTOR (18 downto 0);
 begin
 	case state is
 		when 1 =>
@@ -157,11 +162,40 @@ begin
 			enRAM := "10";
 		when others =>
 	end case;
-	outDecode := selfControl & enRA & enRB & enPC & enMAR & enRAM & enMBR & enIR;
+	outDecode := enALU & selfControl & enRA & enRB & enPC & enMAR & enRAM & enMBR & enIR;
 	return outDecode;
 end moveAddrReg;
 --
+--ALU involved!
+-- And
+function addAB (state: integer) return STD_LOGIC_VECTOR is
+	variable enPC : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enMAR : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enMBR : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enRAM : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enIR : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enRA : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enRB : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enALU : STD_LOGIC := '0';
+	variable selfControl : STD_LOGIC_VECTOR(3 downto 0) := "0000";
+	variable outDecode : STD_LOGIC_VECTOR (18 downto 0);
+begin
+	case state is
+		when 1 =>
+			selfControl := "0010"; --sacar
+		when 2 =>
+			enALU := '1';
+		when 3 => 
+			enRAM := "01";
+		when 4 => 
+			enRAM := "10";
+		when others =>
+	end case;
+	outDecode := enALU & selfControl & enRA & enRB & enPC & enMAR & enRAM & enMBR & enIR;
+	return outDecode;
+end addAB;
 
+--
 
 
 --INCTRUCTION CYCLE
@@ -174,9 +208,10 @@ begin
 process (estadoPresente, clk)
 variable counter: integer := 0;
 variable counterDecode : integer := 0;
-variable fetchOut : STD_LOGIC_VECTOR(17 downto 0);
-variable decodeOut : STD_LOGIC_VECTOR(17 downto 0);
+variable fetchOut : STD_LOGIC_VECTOR(18 downto 0);
+variable decodeOut : STD_LOGIC_VECTOR(18 downto 0);
 variable instructionOpcode : STD_LOGIC_VECTOR(4 downto 0);
+variable IRdata : STD_LOGIC_VECTOR(23 downto 0);
 
 begin
 
@@ -189,7 +224,8 @@ case estadoPresente is
 		counter := counter + 1;
 		if counter > 0 and counter < 10 then
 			fetchOut := fetch(counter);
-			selfControl <= decodeOut(17 downto 14);
+			enable_ALU <= fetchOut(18);
+			selfControl <= fetchOut(17 downto 14);
 			enable_RA <= fetchOut(13 downto 12);
 			enable_RB <= fetchOut(11 downto 10);
 			enable_PC  <= fetchOut (9 downto 8);
@@ -209,6 +245,7 @@ case estadoPresente is
 		case instructionOpcode is
 			when "00000" => --reg reg
 				decodeOut := moveRegReg(counterDecode);
+				enable_ALU <= decodeOut(18);
 				selfControl <= decodeOut(17 downto 14);
 				enable_RA <= decodeOut(13 downto 12);
 				enable_RB <= decodeOut(11 downto 10);
@@ -222,6 +259,7 @@ case estadoPresente is
 				end if;
 			when "00001" => --reg addr
 				decodeOut := moveAddrReg(counterDecode);
+				enable_ALU <= decodeOut(18);
 				selfControl <= decodeOut(17 downto 14);
 				enable_RA <= decodeOut(13 downto 12);
 				enable_RB <= decodeOut(11 downto 10);
@@ -235,6 +273,7 @@ case estadoPresente is
 				end if;
 			when "00010" => --reg reg (from B to A)
 				decodeOut := moveRegRegBA(counterDecode);
+				enable_ALU <= decodeOut(18);
 				selfControl <= decodeOut(17 downto 14);
 				enable_RA <= decodeOut(13 downto 12);
 				enable_RB <= decodeOut(11 downto 10);
@@ -246,7 +285,22 @@ case estadoPresente is
 				if counterDecode = 3 then
 					estadoSiguiente <=  operandAddCalc;
 				end if;
-				
+			when "00100" => --ADD A and B
+				firstOperand <= instruction(15 downto 8);
+				secondOperand <= instruction(7 downto 0);
+				decodeOut := addAB(counterDecode);
+				enable_ALU <= decodeOut(18);
+				selfControl <= decodeOut(17 downto 14);
+				enable_RA <= decodeOut(13 downto 12);
+				enable_RB <= decodeOut(11 downto 10);
+				enable_PC  <= decodeOut(9 downto 8);
+				enable_MAR <= decodeOut(7 downto 6);
+				enable_RAM <= decodeOut(5 downto 4);
+				enable_MBR <= decodeOut(3 downto 2);
+				enable_IR  <= decodeOut(1 downto 0);
+				if counterDecode = 4 then
+					estadoSiguiente <=  operandAddCalc;
+				end if;
 			when others =>
 		end case;
 		

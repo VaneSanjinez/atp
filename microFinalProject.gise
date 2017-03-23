@@ -23,6 +23,9 @@
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name=".lso"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="ALU.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="ALU.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="ALU.xst"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="IR.prj"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="IR.stx"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="IR.xst"/>
@@ -35,9 +38,15 @@
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="PC.prj"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="PC.stx"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="PC.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="RA.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="RA.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="RA.xst"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="RAM.prj"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="RAM.stx"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="RAM.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="RB.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="RB.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="RB.xst"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="controlUnit.prj"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="controlUnit.stx"/>
@@ -72,14 +81,10 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1490226887" xil_pn:in_ck="-1709491187085259392" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1490226887">
+    <transform xil_pn:end_ts="1490294826" xil_pn:in_ck="373480872934886610" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1490294826">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputAdded"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="ALU.vhd"/>
       <outfile xil_pn:name="IR.vhd"/>
       <outfile xil_pn:name="MAR.vhd"/>
       <outfile xil_pn:name="MBR.vhd"/>
@@ -103,14 +108,10 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1490226916" xil_pn:in_ck="-1709491187085259392" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1490226916">
+    <transform xil_pn:end_ts="1490294829" xil_pn:in_ck="373480872934886610" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1490294829">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="ALU.vhd"/>
       <outfile xil_pn:name="IR.vhd"/>
       <outfile xil_pn:name="MAR.vhd"/>
       <outfile xil_pn:name="MBR.vhd"/>
@@ -122,14 +123,9 @@
       <outfile xil_pn:name="micro_tb.vhd"/>
       <outfile xil_pn:name="microprocessor.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1490226923" xil_pn:in_ck="-1709491187085259392" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="6529362964741477516" xil_pn:start_ts="1490226916">
+    <transform xil_pn:end_ts="1490294836" xil_pn:in_ck="373480872934886610" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="6529362964741477516" xil_pn:start_ts="1490294829">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
       <outfile xil_pn:name="isim.log"/>
@@ -137,12 +133,9 @@
       <outfile xil_pn:name="micro_tb_isim_beh.exe"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1490226924" xil_pn:in_ck="5259537860224310430" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-2037276581674886279" xil_pn:start_ts="1490226923">
+    <transform xil_pn:end_ts="1490294837" xil_pn:in_ck="5259537860224310430" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-2037276581674886279" xil_pn:start_ts="1490294836">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="micro_tb_isim_beh.wdb"/>
