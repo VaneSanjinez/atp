@@ -607,7 +607,35 @@ begin
 	return outDecode;
 end xorAB;
 --
-
+--
+--Not regA
+function decA (state: integer) return STD_LOGIC_VECTOR is
+	variable enPC : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enMAR : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enMBR : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enRAM : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enIR : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enRA : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enRB : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enALU : STD_LOGIC := '0';
+	variable aluControl : STD_LOGIC_VECTOR(3 downto 0) := "0000";
+	variable selfControl : STD_LOGIC_VECTOR(3 downto 0) := "0000";
+	variable outDecode : STD_LOGIC_VECTOR (22 downto 0);
+begin
+	case state is
+		when 1 =>
+			enRA := "10";
+		when 2 =>
+			aluControl := "0001"; --save in A (ALU's variables)
+		when 3 =>
+			aluControl := "0111"; --DEC A
+		when 4 =>
+			enALU := '1';
+		when others =>
+	end case;
+	outDecode := aluControl & enALU & selfControl & enRA & enRB & enPC & enMAR & enRAM & enMBR & enIR;
+	return outDecode;
+end decA;
 --
 --INCTRUCTION CYCLE
 type estado is (instAddr, instFetch, instDecoding, operandAddCalc, operandFetch, dataOp, opDataCalc, opStore);
@@ -925,6 +953,23 @@ case estadoPresente is
 				firstOperand <= instruction(15 downto 8);
 				secondOperand <= instruction(7 downto 0);
 				decodeOut := xorAB(counterDecode);
+				aluControl <= decodeOut(22 downto 19);
+				enable_ALU <= decodeOut(18);
+				selfControl <= decodeOut(17 downto 14);
+				enable_RA <= decodeOut(13 downto 12);
+				enable_RB <= decodeOut(11 downto 10);
+				enable_PC  <= decodeOut(9 downto 8);
+				enable_MAR <= decodeOut(7 downto 6);
+				enable_RAM <= decodeOut(5 downto 4);
+				enable_MBR <= decodeOut(3 downto 2);
+				enable_IR  <= decodeOut(1 downto 0);
+				if counterDecode = 4 then
+					estadoSiguiente <=  operandAddCalc;
+				end if;
+			when "10010" => --xor regA xor regB
+				firstOperand <= instruction(15 downto 8);
+				secondOperand <= instruction(7 downto 0);
+				decodeOut := decA(counterDecode);
 				aluControl <= decodeOut(22 downto 19);
 				enable_ALU <= decodeOut(18);
 				selfControl <= decodeOut(17 downto 14);
