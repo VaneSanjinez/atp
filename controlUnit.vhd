@@ -46,7 +46,8 @@ Port (clk : in STD_LOGIC;
 		selfControl : out STD_LOGIC_VECTOR(3 downto 0);
 		firstOperand :  out STD_LOGIC_VECTOR(7 downto 0);
 		secondOperand :  out STD_LOGIC_VECTOR(7 downto 0);
-		enable_ALU : out STD_LOGIC
+		enable_ALU : out STD_LOGIC;
+		aluControl : out STD_LOGIC_VECTOR(3 downto 0)
 		);
 end controlUnit;
 
@@ -258,19 +259,17 @@ function addAB (state: integer) return STD_LOGIC_VECTOR is
 begin
 	case state is
 		when 1 =>
-			selfControl := "0010";
+			enRA := "10";
 		when 2 =>
-			aluControl := "0000"; --save in A
+			aluControl := "0000"; --save in A (ALU's variables)
 		when 3 =>
-			selfControl := "0001";
+			enRB := "10";
 		when 4 =>
-			aluControl := "0001";
+			aluControl := "0001"; -- save in B (ALU's variables)
 		when 5 =>
+			aluControl := "0010";
+		when 6 =>
 			enALU := '1';
-		when 6 => 
-			enRAM := "01";
-		when 7 => 
-			enRAM := "10";
 		when others =>
 	end case;
 	outDecode := enALU & selfControl & enRA & enRB & enPC & enMAR & enRAM & enMBR & enIR;
@@ -414,6 +413,23 @@ case estadoPresente is
 				if counterDecode = 2 then
 					estadoSiguiente <=  operandAddCalc;
 				end if;
+			when "00111" => --Add
+				firstOperand <= instruction(15 downto 8);
+				secondOperand <= instruction(7 downto 0);
+				decodeOut := addAB(counterDecode);
+				enable_ALU <= decodeOut(18);
+				selfControl <= decodeOut(17 downto 14);
+				enable_RA <= decodeOut(13 downto 12);
+				enable_RB <= decodeOut(11 downto 10);
+				enable_PC  <= decodeOut(9 downto 8);
+				enable_MAR <= decodeOut(7 downto 6);
+				enable_RAM <= decodeOut(5 downto 4);
+				enable_MBR <= decodeOut(3 downto 2);
+				enable_IR  <= decodeOut(1 downto 0);
+				if counterDecode = 6 then
+					estadoSiguiente <=  operandAddCalc;
+				end if;
+			
 			
 			
 			when others =>

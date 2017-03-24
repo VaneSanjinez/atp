@@ -98,7 +98,8 @@ Port (clk : in STD_LOGIC;
 		selfControl : out STD_LOGIC_VECTOR(3 downto 0);
 		firstOperand :  out STD_LOGIC_VECTOR(7 downto 0);
 		secondOperand :  out STD_LOGIC_VECTOR(7 downto 0);
-		enable_ALU : out STD_LOGIC
+		enable_ALU : out STD_LOGIC;
+		aluControl : out STD_LOGIC_VECTOR(3 downto 0)
 		);
 end component;
 --
@@ -144,6 +145,7 @@ signal selfControl : STD_LOGIC_VECTOR(3 downto 0);
 signal operand1 : STD_LOGIC_VECTOR(7 downto 0);
 signal operand2 : STD_LOGIC_VECTOR(7 downto 0);
 signal enALU : STD_LOGIC;
+signal aluControl : STD_LOGIC_VECTOR(3 downto 0);
 
 
 
@@ -174,7 +176,8 @@ p1 : controlUnit port map
 	 selfControl => selfControl,
 	 firstOperand => operand1,
 	 secondOperand => operand2,
-	 enable_ALU => enALU);
+	 enable_ALU => enALU, 
+	 aluControl => aluControl);
 p2 : IR port map
 	(clk => clk,
 	 datain => dataBus,
@@ -224,7 +227,7 @@ p9 : ALU port map
 	 enableALU => enALU,
 	 operandOne => operand1,
 	 operandTwo => operand2,
-	 selfControl => selfControl,
+	 selfControl => aluControl,
 	 dataout => outALU);
 	
 --demux for out of each component DATA
@@ -250,7 +253,7 @@ begin
 	elsif selfControl(1) = '1' then
 		auxiliarBus := X"0000" & operand1;
 	elsif enALU = '1' then
-		auxiliarBus := outALU & X"0000";
+		auxiliarBus := X"0000" & outALU;
 	end if;
 	
 	dataBus <= auxiliarBus;

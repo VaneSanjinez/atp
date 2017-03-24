@@ -44,7 +44,7 @@ architecture Behavioral of RA is
 begin
 
 process (clk, enableWrite, enableRead, datain)
-variable regs : STD_LOGIC_VECTOR (23 downto 0):= X"000000";
+variable regs : STD_LOGIC_VECTOR (23 downto 0):= X"000010";
 
 begin
 if clk = '1' and clk'EVENT then

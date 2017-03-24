@@ -26,6 +26,8 @@
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="ALU.prj"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="ALU.stx"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="ALU.xst"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="ALU_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="ALU_stx_beh.prj"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="IR.prj"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="IR.stx"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="IR.xst"/>
@@ -84,7 +86,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1490316081" xil_pn:in_ck="373480872934886610" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1490316081">
+    <transform xil_pn:end_ts="1490318065" xil_pn:in_ck="373480872934886610" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1490318065">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ALU.vhd"/>
@@ -99,11 +101,11 @@
       <outfile xil_pn:name="micro_tb.vhd"/>
       <outfile xil_pn:name="microprocessor.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1490315602" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-6757898153452634875" xil_pn:start_ts="1490315602">
+    <transform xil_pn:end_ts="1490316738" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-6757898153452634875" xil_pn:start_ts="1490316738">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1490315602" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-2298641199704282553" xil_pn:start_ts="1490315602">
+    <transform xil_pn:end_ts="1490316738" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-2298641199704282553" xil_pn:start_ts="1490316738">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
@@ -111,7 +113,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1490316085" xil_pn:in_ck="373480872934886610" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1490316085">
+    <transform xil_pn:end_ts="1490318071" xil_pn:in_ck="373480872934886610" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1490318070">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ALU.vhd"/>
@@ -126,7 +128,7 @@
       <outfile xil_pn:name="micro_tb.vhd"/>
       <outfile xil_pn:name="microprocessor.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1490316092" xil_pn:in_ck="373480872934886610" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="6529362964741477516" xil_pn:start_ts="1490316085">
+    <transform xil_pn:end_ts="1490318077" xil_pn:in_ck="373480872934886610" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="6529362964741477516" xil_pn:start_ts="1490318071">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="fuse.log"/>
@@ -136,7 +138,7 @@
       <outfile xil_pn:name="micro_tb_isim_beh.exe"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1490316093" xil_pn:in_ck="-6046683955541200151" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-2037276581674886279" xil_pn:start_ts="1490316092">
+    <transform xil_pn:end_ts="1490318078" xil_pn:in_ck="-3017628367752286534" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-2037276581674886279" xil_pn:start_ts="1490318077">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="isim.cmd"/>
