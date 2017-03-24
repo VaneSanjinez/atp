@@ -118,7 +118,7 @@ begin
 	return outDecode;
 end moveRegReg;
 --
---MOVE reg, reg (RB, RA)
+--MOVE reg, reg (RB, RA) move to RB the content of RA
 function moveRegRegBA (state: integer) return STD_LOGIC_VECTOR is
 	variable enPC : STD_LOGIC_VECTOR(1 downto 0) := "00";
 	variable enMAR : STD_LOGIC_VECTOR(1 downto 0) := "00";
@@ -169,7 +169,7 @@ begin
 	return outDecode;
 end moveAddrCtt;
 --
---MOVE reg ctte
+--MOVE reg ctte (to regA)
 function moveRegACtt (state: integer) return STD_LOGIC_VECTOR is
 	variable enPC : STD_LOGIC_VECTOR(1 downto 0) := "00";
 	variable enMAR : STD_LOGIC_VECTOR(1 downto 0) := "00";
@@ -194,8 +194,7 @@ begin
 	return outDecode;
 end moveRegACtt;
 --
---MOVE regB, ctt
---MOVE reg ctte
+--MOVE regB, ctt (to regB)
 function moveRegBCtt (state: integer) return STD_LOGIC_VECTOR is
 	variable enPC : STD_LOGIC_VECTOR(1 downto 0) := "00";
 	variable enMAR : STD_LOGIC_VECTOR(1 downto 0) := "00";
@@ -249,7 +248,8 @@ begin
 	return outDecode;
 end moveAddrReg;
 --
---ALU involved!
+
+--Instruction where ALU is involved!
 -- Add
 function addAB (state: integer) return STD_LOGIC_VECTOR is
 	variable enPC : STD_LOGIC_VECTOR(1 downto 0) := "00";
