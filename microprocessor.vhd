@@ -228,7 +228,7 @@ p9 : ALU port map
 	 dataout => outALU);
 	
 --demux for out of each component DATA
-process (outMBR, outMAR, outRAM, outPC, outIR, outRA, outRB, enMAR, enRAM, enMBR, enIR, enPC, enRA, enRB, selfControl)
+process (outMBR, outMAR, outRAM, outPC, outIR, outRA, outRB, outALU, enMAR, enRAM, enMBR, enIR, enPC, enRA, enRB, selfControl, enALU)
 variable auxiliarBus: STD_LOGIC_VECTOR (23 downto 0);
 begin
 	if enPC(1) = '1' then
@@ -248,7 +248,9 @@ begin
 	elsif selfControl(2) = '1' then
 		auxiliarBus := X"0000" & operand2;
 	elsif selfControl(3) = '1' then
-		auxiliarBus := operand1 & X"0000";
+		auxiliarBus := X"0000" & operand1;
+	elsif enALU = '1' then
+		auxiliarBus := outALU & X"0000";
 	end if;
 	
 	dataBus <= auxiliarBus;

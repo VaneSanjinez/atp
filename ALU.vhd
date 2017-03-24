@@ -55,7 +55,7 @@ begin
 			A := operandOne;
 		when "0001" =>
 			B := operandTwo; --variable asignation
-		when "0010" =>
+		when "0010" => --add
 			C := STD_LOGIC_VECTOR(UNSIGNED(A) + UNSIGNED(B)); --suma
 		when "0011" =>
 			C := A and B; -- and 
@@ -65,7 +65,7 @@ begin
 			C := not A & "00000000";
 		when "0110" =>
 			C := STD_LOGIC_VECTOR(UNSIGNED(A) - 1);
-		when "0111" =>
+		when "0111" => --comparator
 			if A = B then
 				C := "00000001";
 			else 
