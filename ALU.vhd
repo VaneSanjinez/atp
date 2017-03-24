@@ -73,6 +73,8 @@ begin
 			end if;
 		when "1001" => 
 			C := A or B;
+		when "1010" =>
+			C := A xor B;
 		when others =>
 	end case;
 		if enableALU = '1' then
