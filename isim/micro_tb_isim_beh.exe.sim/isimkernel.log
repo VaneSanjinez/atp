@@ -2,9 +2,29 @@ Command line:
    micro_tb_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  5488
+     -socket  6395
 
-Fri Mar 24 19:27:42 2017
+Fri Mar 24 19:50:43 2017
 
 
- Elaboration Time: 0.0312 sec
+ Elaboration Time: 0.0624 sec
+
+ Current Memory Usage: 667.521 Meg
+
+ Total Signals          : 82
+ Total Nets             : 250
+ Total Signal Drivers   : 25
+ Total Blocks           : 15
+ Total Primitive Blocks : 13
+ Total Processes        : 12
+ Total Traceable Variables  : 16
+ Total Scalar Nets and Variables : 752
+Total Line Count : 399
+Total Line Count : 399
+
+ Total Simulation Time: 0.1248 sec
+
+ Current Memory Usage: 982.094 Meg
+
+Fri Mar 24 19:52:17 2017
+
