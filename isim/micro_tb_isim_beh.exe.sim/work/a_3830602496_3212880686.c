@@ -87,7 +87,7 @@ LAB3:    xsi_set_current_line(75, ng0);
     *((int *)t2) = 1;
 
 LAB1:    return;
-LAB2:    xsi_set_current_line(59, ng0);
+LAB2:    xsi_set_current_line(60, ng0);
     t7 = (t0 + 12419);
     t9 = (t0 + 2128U);
     t10 = *((char **)t9);

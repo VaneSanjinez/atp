@@ -51,21 +51,21 @@ begin
 --if enableAlu = '1' then
 	if clk'event and clk = '1' then
 	case selfControl is
-		when "0000" => --variable asignation
+		when "0001" => --variable asignation
 			A := operandOne;
-		when "0001" =>
+		when "0010" =>
 			B := operandTwo; --variable asignation
-		when "0010" => --add
+		when "0011" => --add
 			C := STD_LOGIC_VECTOR(UNSIGNED(A) + UNSIGNED(B)); --suma
-		when "0011" =>
-			C := A and B; -- and 
 		when "0100" =>
-			C := "00000000" & not B;
+			C := A and B; -- and 
 		when "0101" =>
-			C := not A & "00000000";
+			C := "00000000" & not B;
 		when "0110" =>
+			C := not A & "00000000";
+		when "0111" =>
 			C := STD_LOGIC_VECTOR(UNSIGNED(A) - 1);
-		when "0111" => --comparator
+		when "1000" => --comparator
 			if A = B then
 				C := "00000001";
 			else 

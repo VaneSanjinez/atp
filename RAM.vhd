@@ -56,10 +56,10 @@ if clk = '1' and clk'Event then
 --memory(2) := "000001111010101010101010"; -- move RA, RB from RB to RA
 --memory(2) := "000011111010101010101010"; -- move reg, Addr from addr to reg
 
-memory(2) := "001010000000001000000011"; -- move reg, Addr from addr to reg
---memory(2) := "001010000000001000000011"; -- move reg ctt
-memory(3) := "001100000000001000000011";-- move regB ctte 00110
-memory(4) := "001110000000001000000011"; -- add 
+--memory(2) := "001010000000001000000011"; -- move reg, Addr from addr to reg
+memory(2) := "001010000000001000000001"; -- move regA ctt = 1
+memory(3) := "001100000000001000000010";-- move regB ctt = 2
+memory(4) := "001110000000001000000011"; -- add of 1 + 2 = 3 result must be 3
 --	if reset = '1' then
 --			memory <= (others => (others => '0'));
 --	end if;

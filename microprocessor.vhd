@@ -225,8 +225,8 @@ p8 : RB port map
 p9 : ALU port map
 	(clk => clk,
 	 enableALU => enALU,
-	 operandOne => operand1,
-	 operandTwo => operand2,
+	 operandOne => dataBus(7 downto 0),
+	 operandTwo => dataBus(7 downto 0),
 	 selfControl => aluControl,
 	 dataout => outALU);
 	
