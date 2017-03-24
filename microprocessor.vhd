@@ -245,9 +245,9 @@ begin
 		auxiliarBus := outRA;
 	elsif enRB(1) = '1' then
 		auxiliarBus := outRB;
-	elsif selfControl(2) = '1' then
+	elsif selfControl(0) = '1' then
 		auxiliarBus := X"0000" & operand2;
-	elsif selfControl(3) = '1' then
+	elsif selfControl(1) = '1' then
 		auxiliarBus := X"0000" & operand1;
 	elsif enALU = '1' then
 		auxiliarBus := outALU & X"0000";
@@ -262,9 +262,9 @@ variable auxiliarAddr: STD_LOGIC_VECTOR(7 downto 0);
 begin
 	if enMAR(1) = '1' then
 		auxiliarAddr := outMAR(7 downto 0);
-	elsif selfControl(0) = '1' then
+	elsif selfControl(2) = '1' then
 		auxiliarAddr := operand2;
-	elsif selfControl(1) = '1' then
+	elsif selfControl(3) = '1' then
 		auxiliarAddr := operand1;
 	end if;
 	dataAddr <= auxiliarAddr;

@@ -269,7 +269,7 @@ begin
 			enALU := '1';
 		when 6 => 
 			enRAM := "01";
-		when 4 => 
+		when 7 => 
 			enRAM := "10";
 		when others =>
 	end case;

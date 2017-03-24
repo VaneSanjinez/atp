@@ -4007,7 +4007,7 @@ LAB14:    if (t3 == 5)
 LAB15:    if (t3 == 6)
         goto LAB8;
 
-LAB16:    if (t3 == 4)
+LAB16:    if (t3 == 7)
         goto LAB9;
 
 LAB17:
