@@ -60,9 +60,9 @@ begin
 		when "0100" =>
 			C := A and B; -- and 
 		when "0101" =>
-			C := "00000000" & not B;
+			C := not A;
 		when "0110" =>
-			C := not A & "00000000";
+			C := not B;
 		when "0111" =>
 			C := STD_LOGIC_VECTOR(UNSIGNED(A) - 1);
 		when "1000" => --comparator

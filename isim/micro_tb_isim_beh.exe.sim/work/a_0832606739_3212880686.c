@@ -220,6 +220,20 @@ LAB12:    xsi_set_current_line(61, ng0);
     goto LAB8;
 
 LAB13:    xsi_set_current_line(63, ng0);
+    t2 = (t0 + 2128U);
+    t4 = *((char **)t2);
+    t2 = (t0 + 6300U);
+    t5 = ieee_p_2592010699_sub_1837678034_503743352(IEEE_P_2592010699, t38, t4, t2);
+    t8 = (t0 + 2368U);
+    t9 = *((char **)t8);
+    t8 = (t9 + 0);
+    t11 = (t38 + 12U);
+    t39 = *((unsigned int *)t11);
+    t40 = (1U * t39);
+    memcpy(t8, t5, t40);
+    goto LAB8;
+
+LAB14:    xsi_set_current_line(65, ng0);
     t2 = (t0 + 6438);
     t5 = (t0 + 2248U);
     t8 = *((char **)t5);
@@ -246,36 +260,6 @@ LAB13:    xsi_set_current_line(63, ng0);
     t39 = *((unsigned int *)t18);
     t40 = (1U * t39);
     t43 = (8U + t40);
-    memcpy(t15, t11, t43);
-    goto LAB8;
-
-LAB14:    xsi_set_current_line(65, ng0);
-    t2 = (t0 + 2128U);
-    t4 = *((char **)t2);
-    t2 = (t0 + 6300U);
-    t5 = ieee_p_2592010699_sub_1837678034_503743352(IEEE_P_2592010699, t38, t4, t2);
-    t8 = (t0 + 6446);
-    t12 = ((IEEE_P_2592010699) + 4024);
-    t14 = (t42 + 0U);
-    t15 = (t14 + 0U);
-    *((int *)t15) = 0;
-    t15 = (t14 + 4U);
-    *((int *)t15) = 7;
-    t15 = (t14 + 8U);
-    *((int *)t15) = 1;
-    t10 = (7 - 0);
-    t39 = (t10 * 1);
-    t39 = (t39 + 1);
-    t15 = (t14 + 12U);
-    *((unsigned int *)t15) = t39;
-    t11 = xsi_base_array_concat(t11, t41, t12, (char)97, t5, t38, (char)97, t8, t42, (char)101);
-    t15 = (t0 + 2368U);
-    t17 = *((char **)t15);
-    t15 = (t17 + 0);
-    t18 = (t38 + 12U);
-    t39 = *((unsigned int *)t18);
-    t40 = (1U * t39);
-    t43 = (t40 + 8U);
     memcpy(t15, t11, t43);
     goto LAB8;
 
@@ -308,7 +292,7 @@ LAB34:    if (t1 != 0)
         goto LAB29;
 
 LAB31:    xsi_set_current_line(72, ng0);
-    t2 = (t0 + 6462);
+    t2 = (t0 + 6454);
     t5 = (t0 + 2368U);
     t8 = *((char **)t5);
     t5 = (t8 + 0);
@@ -335,7 +319,7 @@ LAB17:    xsi_set_current_line(75, ng0);
 
 LAB28:;
 LAB29:    xsi_set_current_line(70, ng0);
-    t9 = (t0 + 6454);
+    t9 = (t0 + 6446);
     t12 = (t0 + 2368U);
     t14 = *((char **)t12);
     t12 = (t14 + 0);

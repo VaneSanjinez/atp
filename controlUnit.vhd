@@ -482,6 +482,97 @@ begin
 	outDecode := aluControl & enALU & selfControl & enRA & enRB & enPC & enMAR & enRAM & enMBR & enIR;
 	return outDecode;
 end cmpRegReg;
+--
+--CMP reg mem
+function cmpRegMem (state: integer) return STD_LOGIC_VECTOR is
+	variable enPC : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enMAR : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enMBR : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enRAM : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enIR : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enRA : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enRB : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enALU : STD_LOGIC := '0';
+	variable aluControl : STD_LOGIC_VECTOR(3 downto 0) := "0000";
+	variable selfControl : STD_LOGIC_VECTOR(3 downto 0) := "0000";
+	variable outDecode : STD_LOGIC_VECTOR (22 downto 0);
+begin
+	case state is
+		when 1 =>
+			enRA := "10";
+		when 2 =>
+			aluControl := "0001"; --save in A (ALU's variables)
+		when 3 =>
+			enRAM := "10";
+		when 4 =>
+			aluControl := "0010"; -- save in B (ALU's variables)
+		when 5 =>
+			aluControl := "1000"; --CMP
+		when 6 =>
+			enALU := '1';
+		when others =>
+	end case;
+	outDecode := aluControl & enALU & selfControl & enRA & enRB & enPC & enMAR & enRAM & enMBR & enIR;
+	return outDecode;
+end cmpRegMem;
+--
+--Not regA
+function notA (state: integer) return STD_LOGIC_VECTOR is
+	variable enPC : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enMAR : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enMBR : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enRAM : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enIR : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enRA : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enRB : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enALU : STD_LOGIC := '0';
+	variable aluControl : STD_LOGIC_VECTOR(3 downto 0) := "0000";
+	variable selfControl : STD_LOGIC_VECTOR(3 downto 0) := "0000";
+	variable outDecode : STD_LOGIC_VECTOR (22 downto 0);
+begin
+	case state is
+		when 1 =>
+			enRA := "10";
+		when 2 =>
+			aluControl := "0001"; --save in A (ALU's variables)
+		when 3 =>
+			aluControl := "0101"; --Not regA
+		when 4 =>
+			enALU := '1';
+		when others =>
+	end case;
+	outDecode := aluControl & enALU & selfControl & enRA & enRB & enPC & enMAR & enRAM & enMBR & enIR;
+	return outDecode;
+end notA;
+--
+--Not regB
+function notB (state: integer) return STD_LOGIC_VECTOR is
+	variable enPC : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enMAR : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enMBR : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enRAM : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enIR : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enRA : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enRB : STD_LOGIC_VECTOR(1 downto 0) := "00";
+	variable enALU : STD_LOGIC := '0';
+	variable aluControl : STD_LOGIC_VECTOR(3 downto 0) := "0000";
+	variable selfControl : STD_LOGIC_VECTOR(3 downto 0) := "0000";
+	variable outDecode : STD_LOGIC_VECTOR (22 downto 0);
+begin
+	case state is
+		when 1 =>
+			enRB:= "10";
+		when 2 =>
+			aluControl := "0001"; --save in A (ALU's variables)
+		when 3 =>
+			aluControl := "0101"; --Not regA
+		when 4 =>
+			enALU := '1';
+		when others =>
+	end case;
+	outDecode := aluControl & enALU & selfControl & enRA & enRB & enPC & enMAR & enRAM & enMBR & enIR;
+	return outDecode;
+end notB;
 
 --
 --INCTRUCTION CYCLE
@@ -745,7 +836,57 @@ case estadoPresente is
 				if counterDecode = 6 then
 					estadoSiguiente <=  operandAddCalc;
 				end if;
-			
+			when "01110" => --CMP reg addr
+				firstOperand <= instruction(15 downto 8);
+				secondOperand <= instruction(7 downto 0);
+				decodeOut := cmpRegMem(counterDecode);
+				aluControl <= decodeOut(22 downto 19);
+				enable_ALU <= decodeOut(18);
+				selfControl <= decodeOut(17 downto 14);
+				enable_RA <= decodeOut(13 downto 12);
+				enable_RB <= decodeOut(11 downto 10);
+				enable_PC  <= decodeOut(9 downto 8);
+				enable_MAR <= decodeOut(7 downto 6);
+				enable_RAM <= decodeOut(5 downto 4);
+				enable_MBR <= decodeOut(3 downto 2);
+				enable_IR  <= decodeOut(1 downto 0);
+				if counterDecode = 6 then
+					estadoSiguiente <=  operandAddCalc;
+				end if;
+			when "01111" => --NOT regA
+				firstOperand <= instruction(15 downto 8);
+				secondOperand <= instruction(7 downto 0);
+				decodeOut := notA(counterDecode);
+				aluControl <= decodeOut(22 downto 19);
+				enable_ALU <= decodeOut(18);
+				selfControl <= decodeOut(17 downto 14);
+				enable_RA <= decodeOut(13 downto 12);
+				enable_RB <= decodeOut(11 downto 10);
+				enable_PC  <= decodeOut(9 downto 8);
+				enable_MAR <= decodeOut(7 downto 6);
+				enable_RAM <= decodeOut(5 downto 4);
+				enable_MBR <= decodeOut(3 downto 2);
+				enable_IR  <= decodeOut(1 downto 0);
+				if counterDecode = 4 then
+					estadoSiguiente <=  operandAddCalc;
+				end if;
+			when "10000" => --NOT regB
+				firstOperand <= instruction(15 downto 8);
+				secondOperand <= instruction(7 downto 0);
+				decodeOut := notB(counterDecode);
+				aluControl <= decodeOut(22 downto 19);
+				enable_ALU <= decodeOut(18);
+				selfControl <= decodeOut(17 downto 14);
+				enable_RA <= decodeOut(13 downto 12);
+				enable_RB <= decodeOut(11 downto 10);
+				enable_PC  <= decodeOut(9 downto 8);
+				enable_MAR <= decodeOut(7 downto 6);
+				enable_RAM <= decodeOut(5 downto 4);
+				enable_MBR <= decodeOut(3 downto 2);
+				enable_IR  <= decodeOut(1 downto 0);
+				if counterDecode = 4 then
+					estadoSiguiente <=  operandAddCalc;
+				end if;
 			when others =>
 		end case;
 		
