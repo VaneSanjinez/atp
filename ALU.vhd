@@ -71,6 +71,8 @@ begin
 			else 
 				C := "00000000";
 			end if;
+		when "1001" => 
+			C := A or B;
 		when others =>
 	end case;
 		if enableALU = '1' then
